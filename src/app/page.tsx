@@ -1,65 +1,114 @@
-import Image from "next/image";
+// src/app/page.tsx
+import Link from "next/link"
+import InterestForm from "@/components/marketing/InterestForm"
+import { Benefits } from "@/components/marketing/Benefits"
+import { Steps } from "@/components/marketing/Steps"
+import { SocialProof } from "@/components/marketing/SocialProof"
+import { Container } from "@/components/ui/Container"
+import { Section } from "@/components/ui/Section"
+import { Pill } from "@/components/ui/Pills"
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main>
+      {/* HERO */}
+      <Section className="hero section pt-12 sm:pt-16">
+        <Container>
+          <div className="mx-auto max-w-3xl text-center space-y-4">
+            <Pill>
+              Entrega local · Curadoria independente · Sem taxas surpresa
+            </Pill>
+
+            <h1 className="text-3xl sm:text-4xl font-bold">
+              Livros em português, direto pra Irlanda 🇮🇪
+            </h1>
+
+            <p className="text-muted">
+              Estamos montando o primeiro catálogo da Agathos Books — uma
+              livraria feita para quem ama o verdadeiro, o bom e o belo. Diga
+              quais títulos você quer ver por aqui e ganhe{" "}
+              <strong>10% de desconto</strong> no lançamento.
+            </p>
+
+            <div className="flex justify-center">
+              <Link href="#interesse" className="cta">
+                Quero indicar meus livros 📚
+              </Link>
+            </div>
+
+            <p className="text-xs text-muted">
+              Entrega local, curadoria feita pela comunidade lusófona, sem taxas
+              surpresa.
+            </p>
+          </div>
+        </Container>
+      </Section>
+
+      {/* BENEFÍCIOS */}
+      <Benefits />
+
+      {/* COMO FUNCIONA */}
+      <Steps />
+
+      {/* FORMULÁRIO */}
+      <Section id="interesse" className="section">
+        <Container>
+          <h2 className="text-lg font-semibold mb-2">
+            Ajude a montar o catálogo da Agathos Books ✍️
+          </h2>
+          <p className="text-sm text-muted mb-4">
+            Leva 1 minuto. Você recebe 10% de desconto no lançamento.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+          <InterestForm />
+        </Container>
+      </Section>
+
+      {/* PROVA SOCIAL */}
+      <SocialProof />
+
+      {/* RODAPÉ */}
+      <footer className="py-6">
+        <Container>
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center space-y-2">
+            <p className="text-slate-700">
+              Feito com ❤️ por <span className="font-medium">Thales Leite</span>{" "}
+              — projeto independente
+            </p>
+
+            <p className="text-sm text-slate-600 space-x-2">
+              <a
+                className="underline hover:no-underline"
+                href="mailto:thalesaleite@gmail.com"
+              >
+                📧 thalesaleite@gmail.com
+              </a>
+              <span>·</span>
+              <a
+                className="underline hover:no-underline"
+                href="https://instagram.com/SEU_INSTAGRAM_PRO"
+                target="_blank"
+                rel="noreferrer"
+              >
+                📸 @SEU_INSTAGRAM_PRO
+              </a>
+              <span>·</span>
+              <a
+                className="underline hover:no-underline"
+                href="https://SEU_SITE_PRO.dev"
+                target="_blank"
+                rel="noreferrer"
+              >
+                🌐 seu-site
+              </a>
+            </p>
+
+            <p className="text-xs text-slate-500">
+              Usarei seus dados apenas para avisar sobre o lançamento. Você pode
+              sair da lista a qualquer momento.
+            </p>
+          </div>
+        </Container>
+      </footer>
+    </main>
+  )
 }

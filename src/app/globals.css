@@ -1,26 +1,329 @@
+/* src/styles/global.scss */
 @import "tailwindcss";
 
+/* ===== Design tokens (Tailwind v4) ===== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Cores base */
+  --bg: #fcfaf3; /* creme */
+  --ink: #0f172a; /* slate-900 */
+  --muted: #475569; /* slate-600 */
+
+  /* Marca (âmbar) */
+  --brand-50: #fff7e8;
+  --brand-100: #ffedcf;
+  --brand-200: #ffd99f;
+  --brand-300: #ffc46e;
+  --brand-400: #ffb14b;
+  --brand-500: #f8a646; /* principal */
+  --brand-600: #e18f33;
+  --brand-700: #b86c21;
+  --brand-800: #8f4e17;
+  --brand-900: #6e3b12;
+
+  /* Acessórios */
+  --ring: var(--brand-500);
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb; /* slate-200 */
+  --soft-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Expondo como tokens para @theme */
+@theme {
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-bg: var(--bg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ===== Base ===== */
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(
+    --font-sans,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Inter",
+    Arial,
+    Helvetica,
+    sans-serif
+  );
+  text-rendering: optimizeLegibility;
+}
+
+/* Tipografia base refinada */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.01em;
+}
+h1 {
+  @apply text-3xl sm:text-4xl font-bold;
+}
+h2 {
+  @apply text-2xl font-semibold;
+}
+h3 {
+  @apply text-xl font-semibold;
+}
+
+a {
+  @apply underline decoration-brand-300 underline-offset-4 transition;
+}
+a:hover {
+  @apply decoration-brand-500;
+}
+
+/* ===== Helpers ===== */
+.container {
+  @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+.section {
+  @apply py-10 sm:py-14;
+}
+
+/* ===== Cards ===== */
+.card {
+  @apply rounded-2xl border bg-white shadow-sm;
+  border-color: var(--card-border);
+  box-shadow: var(--soft-shadow);
+}
+.card-cream {
+  @apply rounded-2xl shadow-sm;
+  background: var(--bg);
+  border: 1px solid #efece2;
+}
+
+/* ===== Botões ===== */
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition cursor-pointer select-none;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  @apply ring-0;
+}
+
+.btn-primary {
+  color: #fff;
+  background: var(--brand-500);
+}
+.btn-primary:hover {
+  background: var(--brand-600);
+}
+.btn-primary:active {
+  transform: translateY(0.5px);
+}
+
+.btn-ghost {
+  @apply bg-transparent text-slate-800 hover:bg-slate-100;
+  border: 1px solid #e5e7eb;
+}
+
+.btn-subtle {
+  @apply bg-brand-50 text-brand-700;
+  border: 1px solid var(--brand-100);
+}
+.btn-subtle:hover {
+  @apply bg-brand-100;
+}
+
+/* Pequenos botões */
+.btn-xs {
+  @apply px-2 py-1 text-xs rounded-lg;
+}
+.btn-sm {
+  @apply px-3 py-1.5 text-sm rounded-lg;
+}
+.btn-lg {
+  @apply px-5 py-2.5 text-base rounded-xl;
+}
+.btn-full {
+  @apply w-full;
+}
+
+/* ===== Inputs / Selects / Textareas ===== */
+.input,
+.select,
+.textarea {
+  @apply w-full rounded-xl border bg-white px-3 py-2 text-sm text-slate-900;
+  border-color: #d1d5db; /* slate-300 */
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.input::placeholder,
+.textarea::placeholder {
+  @apply text-slate-400;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--brand-500);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand-500) 18%, transparent);
+  outline: none;
+}
+
+.input-xs {
+  @apply px-2 py-1 text-xs rounded-lg;
+}
+.input-sm {
+  @apply px-3 py-1.5 text-sm rounded-lg;
+}
+
+/* ===== Pills / Badges ===== */
+.pill {
+  @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium ring-1;
+  @apply bg-brand-50 text-brand-700 ring-brand-100;
+}
+.pill-muted {
+  @apply bg-slate-100 text-slate-700 ring-slate-200;
+}
+
+/* ===== Tabelas (admin) ===== */
+.table {
+  @apply min-w-full text-sm;
+}
+.table thead {
+  @apply bg-slate-50 text-slate-600;
+}
+.table th,
+.table td {
+  @apply px-3 py-2;
+}
+.table tr + tr {
+  @apply border-t border-slate-100;
+}
+
+/* ===== Seções visuais ===== */
+.hero {
+  background: radial-gradient(
+      80rem 40rem at 50% -20%,
+      color-mix(in oklab, var(--brand-200) 28%, transparent),
+      transparent
+    ),
+    var(--bg);
+}
+.kpi {
+  @apply rounded-2xl border bg-white p-4 shadow-sm;
+  border-color: var(--card-border);
+}
+
+/* ===== Animações suaves ===== */
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.04);
+  }
+  30% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animate-bump {
+  animation: bump 420ms ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-slide-in {
+  animation: slide-in 0.18s ease-out;
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(248, 166, 70, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(248, 166, 70, 0.1);
+  }
+}
+.animate-pulse-soft {
+  animation: pulse-soft 0.9s ease-out;
+}
+
+/* ===== Utilitários rápidos ===== */
+.shadow-soft {
+  box-shadow: var(--soft-shadow);
+}
+.bg-cream {
+  background: var(--bg);
+}
+.text-muted {
+  color: var(--muted);
+}
+
+/* ===== Componentes curtos (usados na landing) ===== */
+.header-bar {
+  @apply sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-white/60;
+}
+
+.cta {
+  @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium text-white;
+  background: linear-gradient(180deg, var(--brand-500), var(--brand-600));
+  box-shadow: 0 6px 20px rgba(248, 166, 70, 0.25);
+}
+.cta:hover {
+  filter: brightness(0.98);
+}
+.cta:active {
+  transform: translateY(0.5px);
+}
+
+/* Estados (pills de status) */
+.badge {
+  @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1;
+}
+.badge-paid {
+  @apply bg-emerald-100 text-emerald-800 ring-emerald-200;
+}
+.badge-pending {
+  @apply bg-slate-100 text-slate-700 ring-slate-200;
+}
+.badge-processing {
+  @apply bg-amber-100 text-amber-800 ring-amber-200;
+}
+.badge-failed {
+  @apply bg-rose-100 text-rose-800 ring-rose-200;
+}
+.badge-refunded {
+  @apply bg-blue-100 text-blue-800 ring-blue-200;
+}
+.badge-cancelled {
+  @apply bg-rose-100 text-rose-800 ring-rose-200;
+}
+.badge-transit {
+  @apply bg-blue-100 text-blue-800 ring-blue-200;
+}
+.badge-delivered {
+  @apply bg-emerald-100 text-emerald-800 ring-emerald-200;
 }
