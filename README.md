@@ -1,36 +1,210 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Agathos Books — Landing (MVP)
+
+A lightweight, fast, and accessible landing page to validate **Agathos Books**: a Portuguese-language web bookstore for readers in Dublin/Ireland. The page collects interest (preferred titles/authors), explains the concept, and builds an early waitlist.
+
+## What you get
+
+- ⚡ **Next.js 15 + React + TypeScript + Tailwind**
+- 🎯 Clear value prop + benefits + how-it-works
+- 📝 **Interest form** with humane copy (1-minute survey)
+- ✅ Serverless **API endpoint** to receive submissions
+- 🖼️ Brand-aligned visuals and subtle motion
+- 🔍 SEO/OG tags & responsive layout
+- ☁️ **Vercel-ready** (works on any Node host)
+
+---
+
+## Goals (MVP validation)
+
+- **100+** responses in 3 weeks
+- **20–30** repeated titles for the first catalog
+- **40%** willing to pre-order (signals inventory mix)
+
+---
+
+## Tech Stack
+
+- **Next.js** (App Router), **React**, **TypeScript**
+- **Tailwind CSS** (utility-first)
+- Small **UI atoms** (Container, Section, Pill)
+- Optional email delivery (Resend/Mailgun) via API route
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- **Node.js** 18.18+ (or 20+)
+- npm / pnpm / yarn (examples use npm)
+
+### Install & Run
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# → http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build & Start
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Environment Variables
 
-## Learn More
+The landing works without any secrets (submissions log to the server console by default).
 
-To learn more about Next.js, take a look at the following resources:
+If you want to send a confirmation email or forward submissions, create .env.local:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Email (Resend example)
+RESEND_API_KEY=your_resend_key
+EMAIL_FROM="Agathos Books <noreply@yourdomain>"
+EMAIL_TO="thalesaleite@gmail.com"   # where to forward submissions
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The API route will detect these and attempt to send an email; otherwise it just logs.
 
-## Deploy on Vercel
+### Form Submissions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Client:** components/marketing/InterestForm.tsx
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Server:** app/api/interest/route.ts (HTTP POST)
+
+## Payload (example):
+
+```json
+{
+  "name": "Maria",
+  "email": "maria@example.com",
+  "city": "Dublin",
+  "wishlist": "Machado de Assis, Saramago...",
+  "budget": "€10–€20",
+  "preorder": true,
+  "notes": "Gostaria de edições de bolso."
+}
+```
+
+## Default behavior:
+
+- Logs to server console (good for MVP/manual validation).
+
+- If RESEND_API_KEY + EMAIL_TO exist, also forwards a tidy email and can send an optional auto-reply.
+
+Want Google Sheets/Airtable/Notion? Replace the logic inside route.ts—keep the same request shape.
+
+### Customize
+
+## Colors & Tokens
+
+Edit styles/globals.css (CSS variables + Tailwind theme tokens):
+
+```css
+:root {
+  --brand-600: #0ea5a5;
+  --brand-700: #0b8585;
+}
+```
+
+## Copy
+
+Hero/Benefits/Steps/SocialProof text lives in components/marketing/\*.
+
+Update CTAs and microcopy directly in JSX.
+
+## Images
+
+Replace assets under public/images/ but keep the same filenames or update the <Image> paths.
+
+## Contact & Links
+
+Footer uses:
+
+- Email: thalesaleite@gmail.com
+
+- Instagram: your professional handle (update link)
+
+- Personal site: update the link
+
+## SEO & Sharing
+
+We set sensible defaults in `app/layout.tsx` (via the `metadata` export). Update:
+
+- `metadata.title` and `metadata.description`
+- `openGraph` & `twitter` images (ex.: `public/images/hero-books.jpg`)
+
+---
+
+## Accessibility
+
+- Proper headings, labels, and `aria-*` attributes no formulário
+- Contraste de cores suficiente (paleta checada)
+- Foco de teclado visível; botões são `<button>`, links são `<a>`
+
+---
+
+## Performance
+
+- Imagens locais otimizadas via `next/image`
+- Componentes enxutos; sem UI kits pesados
+- Tailwind JIT remove CSS não utilizado em produção
+
+---
+
+## Deployment
+
+### Vercel (recomendado)
+
+1. Faça push para GitHub/GitLab/Bitbucket.
+2. Importe o repositório no Vercel.
+3. (Opcional) Adicione variáveis `.env` para e-mail.
+4. Deploy.
+
+### Outros hosts
+
+- `npm run build` → sirva com `npm start` (Node runtime)  
+  ou exporte um build estático se você remover a rota de API.
+
+---
+
+## Roadmap
+
+- Persistir envios em um DB (Neon/PlanetScale/Dynamo/Firestore)
+- Tabela admin para revisar/exportar CSV
+- Honeypot & rate limiting na API
+- i18n: alternância EN/PT
+- Analytics simples (Plausible/Umami)
+
+---
+
+## Scripts
+
+```json
+{
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint"
+}
+```
+
+---
+
+## License
+
+MIT — use, adapt, and launch 🚀
+
+---
+
+## Contact
+
+- **_Email:_** thalesaleite@gmail.com
+
+- **_Instagram:_** @thalesaleite (professional)
+
+- **_Site:_** https://thalesleite.dev
+
+This landing is intentionally lean. Ship it, validate demand, and iterate fast.
