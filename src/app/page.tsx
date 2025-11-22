@@ -37,8 +37,7 @@ export default function LandingPage() {
             </div>
 
             <p className="text-xs text-muted">
-              Entrega local, curadoria feita pela comunidade lusófona, sem taxas
-              surpresa.
+              Entrega local, curadoria seleção cuidadosa, sem taxas surpresa.
             </p>
           </div>
         </Container>
