@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: " The Agathos Books — Livros em português, direto pra Irlanda",
   description:
     "Estamos montando o primeiro catálogo da The Agathos Books. Indique livros, ganhe 10% no lançamento e ajude a construir a livraria da comunidade.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/icon.png" }],
   openGraph: {
     title: "The Agathos Books",
     description:
