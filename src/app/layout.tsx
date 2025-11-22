@@ -5,16 +5,16 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Agathos Books — Livros em português, direto pra Irlanda",
+  title: " TheAgathos Books — Livros em português, direto pra Irlanda",
   description:
-    "Estamos montando o primeiro catálogo da Agathos Books. Indique livros, ganhe 10% no lançamento e ajude a construir a livraria da comunidade.",
+    "Estamos montando o primeiro catálogo da The Agathos Books. Indique livros, ganhe 10% no lançamento e ajude a construir a livraria da comunidade.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
   openGraph: {
-    title: "Agathos Books",
+    title: "The Agathos Books",
     description:
       "Livros em português, direto pra Irlanda. Indique títulos e ganhe 10% no lançamento.",
     url: "https://agathosbooks.ie",
-    siteName: "Agathos Books",
+    siteName: "The Agathos Books",
     images: [{ url: "/og.jpg", width: 1200, height: 630 }],
     locale: "pt_PT",
     type: "website",

@@ -54,7 +54,7 @@ export default function LandingPage() {
       <Section id="interesse" className="section">
         <Container>
           <h2 className="text-lg font-semibold mb-2">
-            Ajude a montar o catálogo da Agathos Books ✍️
+            Ajude a montar o catálogo da The Agathos Books ✍️
           </h2>
           <p className="text-sm text-muted mb-4">
             Leva 1 minuto. Você recebe 10% de desconto no lançamento.
@@ -85,20 +85,20 @@ export default function LandingPage() {
               <span>·</span>
               <a
                 className="underline hover:no-underline"
-                href="https://instagram.com/SEU_INSTAGRAM_PRO"
+                href="https://www.instagram.com/thalesleite.dev/"
                 target="_blank"
                 rel="noreferrer"
               >
-                📸 @SEU_INSTAGRAM_PRO
+                📸 @thalesleite.dev
               </a>
               <span>·</span>
               <a
                 className="underline hover:no-underline"
-                href="https://SEU_SITE_PRO.dev"
+                href="https://thalesleitedev.com/"
                 target="_blank"
                 rel="noreferrer"
               >
-                🌐 seu-site
+                🌐 thalesleitedev.com
               </a>
             </p>
 

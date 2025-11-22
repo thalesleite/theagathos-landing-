@@ -80,7 +80,7 @@ export default function InterestForm() {
       <div className="grid sm:grid-cols-2 gap-3">
         <div>
           <label className="block text-sm text-muted mb-1">Nome</label>
-          <input name="name" className="input" placeholder="Opcional" />
+          <input name="name" className="input" placeholder="Nome" />
         </div>
         <div>
           <label className="block text-sm text-muted mb-1">E-mail</label>
@@ -184,8 +184,8 @@ export default function InterestForm() {
       <div className="flex items-start gap-2">
         <input type="checkbox" name="consent" className="mt-1" />
         <p className="text-sm text-muted">
-          Concordo em receber novidades da Agathos Books. Usaremos seus dados
-          apenas para o lançamento.
+          Concordo em receber novidades da The Agathos Books. Usaremos seus
+          dados apenas para o lançamento.
         </p>
       </div>
 

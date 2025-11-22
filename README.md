@@ -203,8 +203,8 @@ MIT — use, adapt, and launch 🚀
 
 - **_Email:_** thalesaleite@gmail.com
 
-- **_Instagram:_** @thalesaleite (professional)
+- **_Instagram:_** @thalesleite.dev (professional)
 
-- **_Site:_** https://thalesleite.dev
+- **_Site:_** https://thalesleitedev.com/
 
 This landing is intentionally lean. Ship it, validate demand, and iterate fast.
