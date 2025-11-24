@@ -20,13 +20,13 @@ export default function LandingPage() {
             </Pill>
 
             <h1 className="text-3xl sm:text-4xl font-bold">
-              Livros em português, direto pra Irlanda 🇮🇪
+              Livros em português, do Brasil direto pra Irlanda 🇮🇪
             </h1>
 
             <p className="text-muted">
-              Estamos montando o primeiro catálogo da Agathos Books — uma
-              livraria feita para quem ama o verdadeiro, o bom e o belo. Diga
-              quais títulos você quer ver por aqui e ganhe{" "}
+              Estou montando o primeiro catálogo da Agathos Books — uma livraria
+              feita para quem ama o verdadeiro, o bom e o belo. Diga quais
+              livros você quer ver por aqui e ganhe{" "}
               <strong>10% de desconto</strong> no lançamento.
             </p>
 
@@ -70,8 +70,8 @@ export default function LandingPage() {
         <Container>
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center space-y-2">
             <p className="text-slate-700">
-              Feito com ❤️ por <span className="font-medium">Thales Leite</span>{" "}
-              — projeto independente
+              Desenvolvido por <span className="font-medium">Thales Leite</span>{" "}
+              — iniciativa independente
             </p>
 
             <p className="text-sm text-slate-600 space-x-2">
@@ -102,8 +102,8 @@ export default function LandingPage() {
             </p>
 
             <p className="text-xs text-slate-500">
-              Usarei seus dados apenas para avisar sobre o lançamento. Você pode
-              sair da lista a qualquer momento.
+              Os seus dados serão utilizados exclusivamente para lhe avisar do
+              lançamento. A opção de sair da lista estará sempre disponível.
             </p>
           </div>
         </Container>

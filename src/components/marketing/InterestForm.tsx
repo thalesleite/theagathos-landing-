@@ -109,7 +109,7 @@ export default function InterestForm() {
 
       <div>
         <label className="block text-sm text-muted mb-1">
-          Quais títulos você quer ver?
+          Diga quais títulos de livros você gostaria de ver na livraria?
         </label>
         <textarea
           name="titles"

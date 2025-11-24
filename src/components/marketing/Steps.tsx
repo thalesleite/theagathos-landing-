@@ -20,7 +20,7 @@ export function Steps() {
           <Step
             img="/images/delivery.png"
             title="Você compra com 10% off"
-            text="Quando abrir, te aviso por e-mail e você compra antes de todo mundo."
+            text="Quando o primeiro lote estiver pronto, você recebe o acesso em primeira mão."
           />
         </div>
       </Container>

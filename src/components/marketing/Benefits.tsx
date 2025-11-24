@@ -16,7 +16,7 @@ export function Benefits() {
           />
           <Benefit
             title="Curadoria independente"
-            text="Começo pelos títulos mais pedidos e garanto qualidade antes de quantidade."
+            text="Livros mais pedidos e garanto qualidade antes de quantidade"
           />
         </div>
       </Container>
